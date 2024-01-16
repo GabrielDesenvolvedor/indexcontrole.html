@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url(./assets/ree.jpg);
+        }
+
+        #login-container {
+            width: 200px;
+            text-align: center;
+            background-color: #00a7f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db; /* Cor azul para o botão */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Cor azul mais escura ao passar o mouse */
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" placeholder="Usuário" id="username">
+            <input type="password" placeholder="Senha" id="password">
+            <button type="button" onclick="login()">Entrar</button>
+        </form>
+        <a href="#">Esqueceu sua senha?</a>
+
+        <div class="social-icons">
+            <img src="assets/images.jpg" alt="Facebook">
+            <img src="assets/aa.jpg" alt="Instagram">
+        </div>
+    </div>
+
+    <script>
+        var authorizedUsers = [
+            { username: 'Gabriel', password: '1234' },
+            { username: 'Eduardo', password: '1234' },
+            { username: 'Renato', password: '1234' }
+        ];
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Verifica se as credenciais são válidas
+            var isValid = authorizedUsers.some(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            // Redireciona para a página se as credenciais são válidas
+            if (isValid) {
+                window.location.href = 'controle de produtos/controle de produtos - ABRIR.html';
+            } else {
+                alert('Usuário ou senha incorretos. Tente novamente.');
+            }
+        }
+    </script>
+
+</body>
+</html>
